@@ -2,7 +2,7 @@
 // Найдите среднее арифметическое элементов в каждом столбце
 
 
-void FillArray(double[,] array)
+void FillArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
@@ -10,7 +10,7 @@ void FillArray(double[,] array)
 
 }
 
-void PrintArray(double[,] array)
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -20,28 +20,21 @@ void PrintArray(double[,] array)
     }
 }
 
-
-void Result(double[,] array)
+void Result(int[,] array)
 {
 
     for (int j = 0; j < array.GetLength(1); j++)
     {
-        double Sr = 0;
+        double sum = 0;
         for (int i = 0; i < array.GetLength(0); i++)
         {
-           double res = (Sr + array[i, j]);
-        
-        res = res / 3;
-        Console.Write(res + "; ");
+            sum += array[i, j];
         }
-        Console.WriteLine();
-
+    Console.WriteLine($"Среднее арифметическое {sum/array.GetLength(0)}");
     }
 }
 
-
-
-double[,] array = new double[3, 5];
+int[,] array = new int[3, 5];
 FillArray(array);
 PrintArray(array);
 Result(array);
