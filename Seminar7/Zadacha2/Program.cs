@@ -19,25 +19,27 @@ void PrintArray(int[,] array)
     }
 }
 
-void Result(int[,] array)
+int Result(int[,] array)
 {
     Console.WriteLine("Введите число");
     int n = Convert.ToInt32(Console.ReadLine());
 
+    int count = 0;
     for (int i = 0; i < array.GetLength(0); i++)
+    {
         for (int j = 0; j < array.GetLength(1); j++)
-
-            if (n == array[i, j]) Console.WriteLine($"Позиция данного числа в массиве {i},{j}");
-            else Console.WriteLine($"Числа нет");
-
-
+        {
+            if (n == array[i, j])
+            {
+                count++;
+                Console.WriteLine($"Позиция введенного числа в массиве {i},{j} ");
+            }
+        }
+    }
+    return count;
 }
-
-
-
-
 
 int[,] array = new int[4, 5];
 FillArray(array);
 PrintArray(array);
-Result(array);
+if (Result(array) == 0) Console.WriteLine($"Введенного числа в массиве нет");
