@@ -37,12 +37,12 @@ void Result(int[,] array, int[,] secondArray, int[,] resultArray)
     {
         for (int j = 0; j < secondArray.GetLength(1); j++)
         {
-            resultArray[i, j] = 0;
+            int sum = 0;
             for (int n = 0; n < array.GetLength(1); n++)
             {
-                resultArray[i, j] += array[i, n] * secondArray[n, j];
+                sum += array[i, n] * secondArray[n, j];
             }
-
+            resultArray[i, j] = sum;
         }
     }
 }
